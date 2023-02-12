@@ -135,6 +135,10 @@ public class CarAgent : Agent
 
     public override void OnEpisodeBegin()
     {
+    // I have no idea why this happens, it's extremely cursed, but for some reason this can be null
+        if (this == null)
+            return;
+
         rigidbody.MovePosition(transform.parent.position);
         transform.rotation = Quaternion.Euler(0, 0, 270);
         rigidbody.velocity = Vector2.zero;
